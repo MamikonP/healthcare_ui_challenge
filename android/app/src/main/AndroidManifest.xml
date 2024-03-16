@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
         android:label="healthcare_ui_challenge"
-        android:name="${applicationName}"
+        android:name="Healthcare"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
