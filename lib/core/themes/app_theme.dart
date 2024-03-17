@@ -139,15 +139,24 @@ extension AppTextFontWeightValues on AppTextFontWeight {
 }
 
 class AppThemeData {
+  DarkModeTheme get darkMode => DarkModeTheme();
+  LightModeTheme get lightMode => LightModeTheme();
+
   ThemeData get darkTheme => ThemeData(
       pageTransitionsTheme: const PageTransitionsTheme(
           builders: <TargetPlatform, PageTransitionsBuilder>{
             TargetPlatform.android: CupertinoPageTransitionsBuilder(),
             TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
           }),
-      scaffoldBackgroundColor: DarkModeTheme().background,
-      colorScheme: DarkModeTheme().colorScheme,
-      fontFamily: 'Selecta',
+      scaffoldBackgroundColor: darkMode.background,
+      colorScheme: darkMode.colorScheme,
+      fontFamily: 'Manrope',
+      appBarTheme: AppBarTheme(
+        surfaceTintColor: Colors.transparent,
+        color: darkMode.background,
+        elevation: 1,
+        shadowColor: lightMode.gray50,
+      ),
       useMaterial3: true);
 
   ThemeData get lightTheme => ThemeData(
@@ -156,8 +165,14 @@ class AppThemeData {
             TargetPlatform.android: CupertinoPageTransitionsBuilder(),
             TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
           }),
-      scaffoldBackgroundColor: LightModeTheme().background,
-      colorScheme: LightModeTheme().colorScheme,
-      fontFamily: 'Selecta',
+      scaffoldBackgroundColor: lightMode.background,
+      colorScheme: lightMode.colorScheme,
+      appBarTheme: AppBarTheme(
+        surfaceTintColor: Colors.transparent,
+        color: lightMode.background,
+        elevation: 1,
+        shadowColor: lightMode.gray50,
+      ),
+      fontFamily: 'Manrope',
       useMaterial3: true);
 }

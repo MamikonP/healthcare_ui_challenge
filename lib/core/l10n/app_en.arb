@@ -1,3 +1,13 @@
 {
-  "lblWelcomeBack": "Welcome back"
+  "lblLoginTitle": "Welcome back",
+  "lblLoginDescription": "Please enter a form to login this app",
+  "lblEmailOrUsername": "Email or Username",
+  "lblPassword": "Password",
+  "lblForgotPassword": "Forgot Password",
+  "lblDontHaveAnAccount": "Don't have an account?",
+  "lblRegister": "Register",
+
+  "btnSignIn": "Sign In",
+  "btnSignInWithGoogle": "Sign in with Google",
+  "btnSignInWithApple": "Sign in with Apple"
 }

@@ -6,7 +6,7 @@ class LightModeTheme extends AppTheme {
   @override
   ColorScheme get colorScheme => ColorScheme(
         brightness: Brightness.light,
-        primary: primary800,
+        primary: primary500,
         onPrimary: white,
         secondary: primary50,
         onSecondary: primary500,
