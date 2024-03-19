@@ -11,6 +11,8 @@ abstract class AppRouter {
     switch (settings.name) {
       case AppRoutes.root:
         return SignInRoute();
+      case AppRoutes.home:
+        return HomeRoute();
       default:
         throw Exception('Route not found!');
     }

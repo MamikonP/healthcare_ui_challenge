@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../../core/extensions/number_extension.dart';
 import '../../../core/l10n/l10n.dart';
+import '../../../core/router/app_routes.dart';
 import '../../../core/themes/app_theme.dart';
 import '../../constants/gap_constant.dart';
 import '../../widgets/widgets.dart';
@@ -59,6 +60,8 @@ class SignInScreen extends StatelessWidget {
                   ),
                   LoadingButton(
                       text: L10n.of(context).translate.btnSignIn,
+                      onStopLoading: () =>
+                          Navigator.pushNamed(context, AppRoutes.home),
                       onTap: () async {
                         await Future.delayed(const Duration(seconds: 3));
                       }),

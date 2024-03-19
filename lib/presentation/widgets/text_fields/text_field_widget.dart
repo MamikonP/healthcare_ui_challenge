@@ -10,6 +10,28 @@ import 'text_field_decoration.dart';
 
 enum TextFieldType { outline, inline }
 
+class _PasswordIcon extends StatelessWidget {
+  const _PasswordIcon(this.updatePasswordVisibility, this.obscure);
+
+  final VoidCallback updatePasswordVisibility;
+  final bool obscure;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: GapConstants.medium.rightPadding,
+      child: InkWell(
+        onTap: updatePasswordVisibility,
+        child: !obscure
+            ? RotatedBox(
+                quarterTurns: 2,
+                child: AssetImageWidget.svg(imageName: AssetsText.icEye))
+            : AssetImageWidget.svg(imageName: AssetsText.icEye),
+      ),
+    );
+  }
+}
+
 class TextFieldWidget extends StatefulWidget {
   const TextFieldWidget(
       {super.key,
@@ -168,16 +190,14 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
             hintText: widget.hintText,
             prefixIcon: widget.prefixIcon,
             suffixIcon: widget.obscureText
-                ? Padding(
-                    padding: GapConstants.medium.rightPadding,
-                    child: InkWell(
-                      onTap: updatePasswordVisibility,
-                      child: AssetImageWidget.svg(imageName: AssetsText.icEye),
-                    ),
-                  )
+                ? _PasswordIcon(updatePasswordVisibility, obscure)
                 : widget.suffixIcon,
             contentPadding: widget.padding,
             suffixIconConstraints: const BoxConstraints(
+              minHeight: Constants.iconDefaultSize,
+              minWidth: Constants.iconDefaultSize,
+            ),
+            prefixIconConstraints: const BoxConstraints(
               minHeight: Constants.iconDefaultSize,
               minWidth: Constants.iconDefaultSize,
             ),
@@ -192,16 +212,14 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
             hintText: widget.hintText,
             prefixIcon: widget.prefixIcon,
             suffixIcon: widget.obscureText
-                ? Padding(
-                    padding: GapConstants.medium.rightPadding,
-                    child: InkWell(
-                      onTap: updatePasswordVisibility,
-                      child: AssetImageWidget.svg(imageName: AssetsText.icEye),
-                    ),
-                  )
+                ? _PasswordIcon(updatePasswordVisibility, obscure)
                 : widget.suffixIcon,
             contentPadding: widget.padding,
             suffixIconConstraints: const BoxConstraints(
+              minHeight: Constants.iconDefaultSize,
+              minWidth: Constants.iconDefaultSize,
+            ),
+            prefixIconConstraints: const BoxConstraints(
               minHeight: Constants.iconDefaultSize,
               minWidth: Constants.iconDefaultSize,
             ),

@@ -9,24 +9,33 @@ class HeaderWidget extends StatelessWidget {
     super.key,
     required this.title,
     required this.description,
+    this.titleStyle,
+    this.overflow,
+    this.descriptionStyle,
   });
 
   final String title;
   final String description;
+  final TextStyle? titleStyle;
+  final TextStyle? descriptionStyle;
+  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Text(
           title,
-          style: AppTheme.currentThemeOf(context).title1,
+          style: titleStyle ?? AppTheme.currentThemeOf(context).title1,
+          overflow: overflow ?? TextOverflow.visible,
         ),
         GapConstants.small.verticalSpace,
         Text(
           description,
-          style: AppTheme.currentThemeOf(context).regular1,
+          style: descriptionStyle ?? AppTheme.currentThemeOf(context).regular1,
+          overflow: overflow ?? TextOverflow.visible,
         ),
       ],
     );

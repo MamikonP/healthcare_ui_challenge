@@ -11,10 +11,16 @@ import '../../constants/constants.dart';
 import '../../constants/gap_constant.dart';
 
 class LoadingButton extends StatelessWidget {
-  const LoadingButton({required this.text, required this.onTap, super.key});
+  const LoadingButton({
+    required this.text,
+    required this.onTap,
+    this.onStopLoading,
+    super.key,
+  });
 
   final String text;
   final FutureOr<void> Function() onTap;
+  final FutureOr<void> Function()? onStopLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +50,8 @@ class LoadingButton extends StatelessWidget {
           startLoading();
           await onTap();
           stopLoading();
+          await Future.delayed(const Duration(milliseconds: 500))
+              .then((value) => onStopLoading?.call());
         }
       },
     );
