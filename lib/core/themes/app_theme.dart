@@ -151,6 +151,10 @@ class AppThemeData {
       scaffoldBackgroundColor: darkMode.background,
       colorScheme: darkMode.colorScheme,
       fontFamily: 'Manrope',
+      cardTheme: CardTheme(
+        surfaceTintColor: Colors.transparent,
+        color: lightMode.background,
+      ),
       appBarTheme: AppBarTheme(
         surfaceTintColor: Colors.transparent,
         color: darkMode.background,
@@ -171,6 +175,10 @@ class AppThemeData {
           }),
       scaffoldBackgroundColor: lightMode.background,
       colorScheme: lightMode.colorScheme,
+      cardTheme: CardTheme(
+        surfaceTintColor: Colors.transparent,
+        color: lightMode.background,
+      ),
       appBarTheme: AppBarTheme(
         surfaceTintColor: Colors.transparent,
         color: lightMode.background,

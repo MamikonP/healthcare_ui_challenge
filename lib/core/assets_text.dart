@@ -11,6 +11,9 @@ abstract class AssetsText {
   static const String icMessageFavorite =
       'assets/icons/ic-message-favorite.svg';
   static const String icBuilding = 'assets/icons/ic-building.svg';
+  static const String icHospital = 'assets/icons/ic-hospital.svg';
+  static const String icClock = 'assets/icons/ic-clock.svg';
+  static const String icChat = 'assets/icons/ic-chat.svg';
   /* images */
   static const String imgVirus = 'assets/images/virus.png';
   static const String imgEar = 'assets/images/img-ear.png';

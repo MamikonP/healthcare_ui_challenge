@@ -3,4 +3,5 @@ abstract class AppRoutes {
   static const String home = '/home';
   static const String appointment = '/appointment';
   static const String doctor = '/doctor';
+  static const String doctorDetail = '/doctor-detail';
 }

@@ -31,8 +31,12 @@
   "lblMale": "Male",
   "lblFemale": "Female",
   "lblPrice": "Price",
+  "lblSpecialist": "specialist",
+  "lblHospital": "Hospital",
+  "lblWorkingHour": "Working Hour",
 
   "btnSignIn": "Sign In",
   "btnSignInWithGoogle": "Sign in with Google",
-  "btnSignInWithApple": "Sign in with Apple"
+  "btnSignInWithApple": "Sign in with Apple",
+  "btnMakeAppointment": "Make Appointment"
 }
