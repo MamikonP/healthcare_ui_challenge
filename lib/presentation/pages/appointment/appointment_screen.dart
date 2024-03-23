@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/extensions/number_extension.dart';
 import '../../constants/appointment_type.dart';
 import '../../constants/gap_constant.dart';
+import '../coming_soon_screen.dart';
 import 'widgets/book_appointment_content.dart';
 
 class AppointmentScreen extends StatelessWidget {
@@ -17,13 +18,13 @@ class AppointmentScreen extends StatelessWidget {
         title: Text(appointmentType?.toTitle(context) ?? ''),
       ),
       body: Padding(
-        padding: GapConstants.medium.allPadding,
+        padding: GapConstants.medium.horizontalPadding,
         child: switch (appointmentType) {
           AppointmentType.book => BookAppointmentContent(),
-          AppointmentType.qr => SizedBox(),
-          AppointmentType.consultation => SizedBox(),
-          AppointmentType.pharmacy => SizedBox(),
-          _ => SizedBox()
+          AppointmentType.qr => const ComingSoonScreen(),
+          AppointmentType.consultation => const ComingSoonScreen(),
+          AppointmentType.pharmacy => const ComingSoonScreen(),
+          _ => const ComingSoonScreen()
         },
       ),
     );

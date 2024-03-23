@@ -5,6 +5,7 @@ export 'general/asset_image_widget.dart';
 export 'general/busy_indicator.dart';
 export 'general/header_widget.dart';
 export 'general/icon_with_background.dart';
+export 'general/popup_menu_widget.dart';
 export 'scrollable_list/horizontal_list_view_builder.dart';
 export 'text_fields/search_field.dart';
 export 'text_fields/text_field_widget.dart';

@@ -35,10 +35,12 @@ class IconWithBackground extends StatelessWidget {
           borderRadius: radius.allRadius,
           border: border,
         ),
-        child: AssetImageWidget.svg(
-          imageName: assetIcon,
-          color: iconColor,
-        ),
+        child: assetIcon.split('.')[1] == 'svg'
+            ? AssetImageWidget.svg(
+                imageName: assetIcon,
+                color: iconColor,
+              )
+            : AssetImageWidget.png(imageName: assetIcon),
       ),
     );
   }

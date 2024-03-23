@@ -13,4 +13,8 @@ abstract class AssetsText {
   static const String icBuilding = 'assets/icons/ic-building.svg';
   /* images */
   static const String imgVirus = 'assets/images/virus.png';
+  static const String imgEar = 'assets/images/img-ear.png';
+  static const String imgBrain = 'assets/images/img-brain.png';
+  static const String imgPinchedFinger = 'assets/images/img-pinched-finger.png';
+  static const String imgTooth = 'assets/images/img-tooth.png';
 }

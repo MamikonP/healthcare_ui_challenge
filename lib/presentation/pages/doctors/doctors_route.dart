@@ -1,19 +1,18 @@
 import 'package:flutter/cupertino.dart';
 
 import '../../../core/router/screens.dart';
-import '../../constants/appointment_type.dart';
+import '../../constants/medical_type.dart';
 
-class AppointmentRoute<T> extends PageRoute<T>
+class DoctorsRoute<T> extends PageRoute<T>
     with CupertinoRouteTransitionMixin<T> {
-  AppointmentRoute({
+  DoctorsRoute({
     super.settings,
     this.maintainState = true,
   }) : super(fullscreenDialog: false);
 
   @override
   Widget buildContent(BuildContext context) {
-    return AppointmentScreen(
-        appointmentType: settings.arguments as AppointmentType?);
+    return DoctorsScreen(medicalType: settings.arguments as MedicalType?);
   }
 
   @override
