@@ -156,6 +156,10 @@ class AppThemeData {
         color: darkMode.background,
         elevation: 1,
         shadowColor: lightMode.gray50,
+        titleTextStyle: TextStyle(
+          color: darkMode.typography900,
+          fontWeight: AppTextFontWeight.bold.fontWeight,
+        ),
       ),
       useMaterial3: true);
 
@@ -172,6 +176,10 @@ class AppThemeData {
         color: lightMode.background,
         elevation: 1,
         shadowColor: lightMode.gray50,
+        titleTextStyle: TextStyle(
+          color: darkMode.typography900,
+          fontWeight: AppTextFontWeight.bold.fontWeight,
+        ),
       ),
       fontFamily: 'Manrope',
       useMaterial3: true);

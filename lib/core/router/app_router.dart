@@ -13,6 +13,8 @@ abstract class AppRouter {
         return SignInRoute();
       case AppRoutes.home:
         return HomeRoute();
+      case AppRoutes.appointment:
+        return AppointmentRoute(settings: settings);
       default:
         throw Exception('Route not found!');
     }

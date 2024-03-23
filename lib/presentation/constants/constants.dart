@@ -7,5 +7,7 @@ abstract class Constants {
   static const double fieldHeight = 48;
   static const double zero = 0;
   static const double iconDefaultSize = 24;
+  static const double iconSmallSize = 12;
+  static const double iconMediumSize = 16;
   static const double virusCardHeight = 120;
 }

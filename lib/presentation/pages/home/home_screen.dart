@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 
 import '../../../core/assets_text.dart';
 import '../../../core/extensions/number_extension.dart';
+import '../../../core/l10n/l10n.dart';
+import '../../../core/router/app_routes.dart';
 import '../../../core/themes/app_theme.dart';
 import '../../constants/appointment_type.dart';
 import '../../constants/constants.dart';
@@ -54,29 +56,9 @@ class HomeScreen extends StatelessWidget {
             SliverPadding(
               padding: GapConstants.medium.verticalPadding,
               sliver: SliverToBoxAdapter(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextFieldWidget(
-                        hintText: 'symptoms, diseases...',
-                        padding: GapConstants.small.horizontalPadding,
-                        maxLines: 1,
-                        prefixIcon: Padding(
-                          padding: GapConstants.small.horizontalPadding,
-                          child: AssetImageWidget.svg(
-                              imageName: AssetsText.icSearch),
-                        ),
-                      ),
-                    ),
-                    GapConstants.medium.horizontalSpace,
-                    IconWithBackground(
-                      assetIcon: AssetsText.icFilter,
-                      padding: GapConstants.smaller + GapConstants.small,
-                      backgroundColor:
-                          AppTheme.currentThemeOf(context).primary50,
-                      onTap: () {},
-                    )
-                  ],
+                child: SearchField(
+                  hintText: L10n.of(context).translate.lblSymptomsAndDiseases,
+                  onFilter: () {},
                 ),
               ),
             ),
@@ -86,6 +68,11 @@ class HomeScreen extends StatelessWidget {
                 initialItemCount: appointmentTypes.length,
                 itemBuilder: (context, index, animation) => AppointmentCard(
                   appointmentType: appointmentTypes[index],
+                  onCardTap: (appointmentType) => Navigator.pushNamed(
+                    context,
+                    AppRoutes.appointment,
+                    arguments: appointmentType,
+                  ),
                 ),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
