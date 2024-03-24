@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/assets_text.dart';
 import '../../../../core/extensions/number_extension.dart';
 import '../../../../core/l10n/l10n.dart';
 import '../../../../core/router/app_routes.dart';
@@ -8,8 +7,8 @@ import '../../../../core/themes/app_theme.dart';
 import '../../../constants/gap_constant.dart';
 import '../../../widgets/widgets.dart';
 
-class MakeAppointmentCard extends StatelessWidget {
-  const MakeAppointmentCard({super.key});
+class AppointmentTimeConfirmCard extends StatelessWidget {
+  const AppointmentTimeConfirmCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,26 +19,18 @@ class MakeAppointmentCard extends StatelessWidget {
       child: Padding(
         padding: GapConstants.large.allPadding,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Flexible(
               child: LoadingButton(
-                text: L10n.of(context).translate.btnMakeAppointment,
+                text: L10n.of(context).translate.btnConfirm,
                 onStopLoading: () =>
-                    Navigator.pushNamed(context, AppRoutes.appointmentTime),
+                    Navigator.pushNamed(context, AppRoutes.payment),
                 onTap: () async {
                   await Future.delayed(const Duration(seconds: 3));
                 },
               ),
             ),
-            GapConstants.medium.horizontalSpace,
-            IconWithBackground(
-              assetIcon: AssetsText.icChat,
-              padding: GapConstants.smaller + GapConstants.small,
-              backgroundColor: AppTheme.currentThemeOf(context).gray50,
-              border:
-                  Border.all(color: AppTheme.currentThemeOf(context).gray200),
-              onTap: () {},
-            )
           ],
         ),
       ),

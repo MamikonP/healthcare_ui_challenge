@@ -13,6 +13,7 @@ abstract class Constants {
   static const double iconMediumSize = 16;
   static const double virusCardHeight = 120;
   static const double popupCardHeight = 32;
+  static const double timeCardHeight = 80;
 }
 
 abstract class BaseEnum {

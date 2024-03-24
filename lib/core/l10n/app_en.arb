@@ -34,9 +34,12 @@
   "lblSpecialist": "specialist",
   "lblHospital": "Hospital",
   "lblWorkingHour": "Working Hour",
+  "lblMakeAppointment": "Make Appointment",
+  "lblPayment": "Payment",
 
   "btnSignIn": "Sign In",
   "btnSignInWithGoogle": "Sign in with Google",
   "btnSignInWithApple": "Sign in with Apple",
-  "btnMakeAppointment": "Make Appointment"
+  "btnMakeAppointment": "Make Appointment",
+  "btnConfirm": "Confirm"
 }

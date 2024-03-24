@@ -19,6 +19,10 @@ abstract class AppRouter {
         return DoctorsRoute(settings: settings);
       case AppRoutes.doctorDetail:
         return DoctorDetailRoute(settings: settings);
+      case AppRoutes.appointmentTime:
+        return AppointmentTimeRoute(settings: settings);
+      case AppRoutes.payment:
+        return PaymentRoute(settings: settings);
       default:
         throw Exception('Route not found!');
     }
