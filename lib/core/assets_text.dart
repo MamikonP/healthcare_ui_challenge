@@ -14,10 +14,14 @@ abstract class AssetsText {
   static const String icHospital = 'assets/icons/ic-hospital.svg';
   static const String icClock = 'assets/icons/ic-clock.svg';
   static const String icChat = 'assets/icons/ic-chat.svg';
+  static const String icEdit = 'assets/icons/ic-edit.svg';
   /* images */
   static const String imgVirus = 'assets/images/virus.png';
   static const String imgEar = 'assets/images/img-ear.png';
   static const String imgBrain = 'assets/images/img-brain.png';
   static const String imgPinchedFinger = 'assets/images/img-pinched-finger.png';
   static const String imgTooth = 'assets/images/img-tooth.png';
+  static const String imgVisa = 'assets/images/img-visa.png';
+  static const String imgMandiri = 'assets/images/img-mandiri.png';
+  static const String imgBca = 'assets/images/img-bca.png';
 }
