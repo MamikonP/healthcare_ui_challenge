@@ -24,4 +24,7 @@ abstract class AssetsText {
   static const String imgVisa = 'assets/images/img-visa.png';
   static const String imgMandiri = 'assets/images/img-mandiri.png';
   static const String imgBca = 'assets/images/img-bca.png';
+  static const String imgSucess = 'assets/images/img-success.png';
+  static const String imgSucessBackground =
+      'assets/images/img-success-background.png';
 }

@@ -6,4 +6,5 @@ abstract class AppRoutes {
   static const String doctorDetail = '/doctor-detail';
   static const String appointmentTime = '/appointment-time';
   static const String payment = '/payment';
+  static const String paymentSuccess = '/payment-success';
 }

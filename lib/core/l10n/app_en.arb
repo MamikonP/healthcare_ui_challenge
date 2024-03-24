@@ -6,6 +6,7 @@
   "lblForgotPassword": "Forgot Password",
   "lblDontHaveAnAccount": "Don't have an account?",
   "lblRegister": "Register",
+  "lblAppointment": "Appointment",
   "lblBookAnAppointmentTitle": "Book an Appointment",
   "lblAppointmentWithQRTitle": "Appointment with QR",
   "lblRequestConsultationTitle": "Request Consultation",
@@ -54,5 +55,6 @@
   "btnSignInWithGoogle": "Sign in with Google",
   "btnSignInWithApple": "Sign in with Apple",
   "btnMakeAppointment": "Make Appointment",
-  "btnConfirm": "Confirm"
+  "btnConfirm": "Confirm",
+  "btnBackToHome": "Back to home"
 }

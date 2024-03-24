@@ -4,5 +4,6 @@ export '../../presentation/pages/doctor_detail/doctor_detail_screen.dart';
 export '../../presentation/pages/doctors/doctors_screen.dart';
 export '../../presentation/pages/home/home_screen.dart';
 export '../../presentation/pages/payment/payment_screen.dart';
+export '../../presentation/pages/payment_success/payment_success_screen.dart';
 export '../../presentation/pages/sign_in/sign_in_screen.dart';
 export '../../presentation/pages/splash/splash_screen.dart';

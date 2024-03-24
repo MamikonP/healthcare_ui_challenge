@@ -75,7 +75,7 @@ class AppButton extends StatelessWidget {
           border: border,
           boxShadow: boxShadow,
         ),
-        padding: padding ?? GapConstants.large.allPadding,
+        padding: padding ?? GapConstants.medium.allPadding,
         alignment: contentAlignment,
         child: !busy
             ? child

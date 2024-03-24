@@ -12,6 +12,7 @@ class HeaderWidget extends StatelessWidget {
     this.titleStyle,
     this.overflow,
     this.descriptionStyle,
+    this.textAlign
   });
 
   final String title;
@@ -19,6 +20,7 @@ class HeaderWidget extends StatelessWidget {
   final TextStyle? titleStyle;
   final TextStyle? descriptionStyle;
   final TextOverflow? overflow;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +32,14 @@ class HeaderWidget extends StatelessWidget {
           title,
           style: titleStyle ?? AppTheme.currentThemeOf(context).title1,
           overflow: overflow ?? TextOverflow.visible,
+          textAlign: textAlign,
         ),
         GapConstants.small.verticalSpace,
         Text(
           description,
           style: descriptionStyle ?? AppTheme.currentThemeOf(context).regular1,
           overflow: overflow ?? TextOverflow.visible,
+          textAlign: textAlign,
         ),
       ],
     );

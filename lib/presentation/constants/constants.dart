@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 abstract class Constants {
   static const double borderRadius = 12;
+  static const double mediumBorderRadius = 16;
+  static const double largeBorderRadius = 24;
   static const double iconBackgroundBorderRadius = 8;
   static const double borderWidth = 1;
   static const double fieldHeight = 48;

@@ -23,6 +23,8 @@ abstract class AppRouter {
         return AppointmentTimeRoute(settings: settings);
       case AppRoutes.payment:
         return PaymentRoute(settings: settings);
+      case AppRoutes.paymentSuccess:
+        return PaymentSuccessRoute(settings: settings);
       default:
         throw Exception('Route not found!');
     }
