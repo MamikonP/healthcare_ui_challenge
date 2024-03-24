@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../../../../core/dialogs/animated_dialog.dart';
 import '../../../../core/extensions/number_extension.dart';
 import '../../../../core/l10n/l10n.dart';
 import '../../../../core/router/app_routes.dart';
@@ -11,15 +12,32 @@ import '../../../constants/gap_constant.dart';
 import '../../../constants/medical_type.dart';
 import '../../../widgets/widgets.dart';
 
-class BookAppointmentContent extends StatelessWidget {
-  BookAppointmentContent({super.key});
+class BookAppointmentContent extends StatefulWidget {
+  const BookAppointmentContent({super.key});
 
+  @override
+  State<BookAppointmentContent> createState() => _BookAppointmentContentState();
+}
+
+class _BookAppointmentContentState extends State<BookAppointmentContent> {
   final medicalTypes = [
     MedicalType.ear,
     MedicalType.psychiatrist,
     MedicalType.dentist,
     MedicalType.dermatoVeneorologis,
   ];
+
+  bool startAnimation = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        startAnimation = true;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,38 +68,45 @@ class BookAppointmentContent extends StatelessWidget {
         ),
         SliverPadding(
           padding: GapConstants.large.verticalPadding,
-          sliver: SliverAnimatedList(
-            initialItemCount: medicalTypes.length,
-            itemBuilder: (context, index, animation) => ListTile(
-              contentPadding: GapConstants.zero.allPadding,
-              leading: IconWithBackground(
-                radius: 100,
-                assetIcon: medicalTypes[index].toIcon(context),
-                padding: GapConstants.small,
-                border: Border.all(
-                    color: AppTheme.currentThemeOf(context).primary100),
-                backgroundColor: AppTheme.currentThemeOf(context).primary50,
-              ),
-              title: Text(medicalTypes[index].toTitle(context)),
-              subtitle: Text(medicalTypes[index].toDescription(context)),
-              trailing: RotatedBox(
-                quarterTurns: 2,
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: AppTheme.currentThemeOf(context).colorScheme.primary,
-                  size: Constants.iconMediumSize,
+          sliver: SliverList.builder(
+            itemCount: medicalTypes.length,
+            itemBuilder: (context, index) => AnimatedContainer(
+              curve: Curves.easeInOut,
+              duration: Duration(milliseconds: 300 + (index * 100)),
+              transform: Matrix4.translationValues(
+                  startAnimation ? 0 : double.infinity, 0, 0),
+              child: ListTile(
+                contentPadding: GapConstants.zero.allPadding,
+                leading: IconWithBackground(
+                  radius: 100,
+                  assetIcon: medicalTypes[index].toIcon(context),
+                  padding: GapConstants.small,
+                  border: Border.all(
+                      color: AppTheme.currentThemeOf(context).primary100),
+                  backgroundColor: AppTheme.currentThemeOf(context).primary50,
                 ),
+                title: Text(medicalTypes[index].toTitle(context)),
+                subtitle: Text(medicalTypes[index].toDescription(context)),
+                trailing: RotatedBox(
+                  quarterTurns: 2,
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: AppTheme.currentThemeOf(context).colorScheme.primary,
+                    size: Constants.iconMediumSize,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.doctor,
+                      arguments: medicalTypes[index]);
+                },
               ),
-              onTap: () {
-                Navigator.pushNamed(context, AppRoutes.doctor,
-                    arguments: medicalTypes[index]);
-              },
             ),
           ),
         ),
         SliverToBoxAdapter(
           child: TextButton(
-            onPressed: () {},
+            onPressed: () => showAnimatedDialog(
+                context, 'Coming soon', 'More coming soon...'),
             child: Row(
               children: [
                 Text(

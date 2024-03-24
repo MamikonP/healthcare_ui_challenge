@@ -37,6 +37,7 @@ class AppointmentCard extends StatelessWidget {
               Align(
                 alignment: Alignment.topLeft,
                 child: IconWithBackground(
+                  animation: true,
                   assetIcon: appointmentType.toIcon(context),
                   padding: GapConstants.smaller + GapConstants.smallest,
                   backgroundColor: appointmentType
