@@ -3,17 +3,43 @@ import 'package:flutter/material.dart';
 import '../../../core/extensions/number_extension.dart';
 import '../../../core/l10n/l10n.dart';
 import '../../../core/router/app_routes.dart';
-import '../../../core/themes/app_theme.dart';
-import '../../constants/constants.dart';
+import '../../../domain/doctor/doctor_entity.dart';
 import '../../constants/doctor_filter_type.dart';
 import '../../constants/gap_constant.dart';
 import '../../constants/medical_type.dart';
 import '../../widgets/widgets.dart';
 
 class DoctorsScreen extends StatelessWidget {
-  const DoctorsScreen({super.key, this.medicalType});
+  DoctorsScreen({super.key, this.medicalType});
 
   final MedicalType? medicalType;
+
+  final availableDoctors = [
+    DoctorEntity(
+        image: 'https://randomuser.me/api/portraits/thumb/men/75.jpg',
+        name: 'Jennie Nichols',
+        stars: 4.9),
+    DoctorEntity(
+        image: 'https://randomuser.me/api/portraits/women/43.jpg',
+        name: 'Anny Rose',
+        stars: 4.6),
+    DoctorEntity(
+        image: 'https://randomuser.me/api/portraits/women/88.jpg',
+        name: 'Windsor Grey',
+        stars: 4.5),
+    DoctorEntity(
+        image: 'https://randomuser.me/api/portraits/women/17.jpg',
+        name: 'Jones Noa',
+        stars: 3.7),
+    DoctorEntity(
+        image: 'https://randomuser.me/api/portraits/women/90.jpg',
+        name: 'Campbell Mae',
+        stars: 3.5),
+    DoctorEntity(
+        image: 'https://randomuser.me/api/portraits/women/48.jpg',
+        name: 'Miller Wren',
+        stars: 3.2),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -63,13 +89,15 @@ class DoctorsScreen extends StatelessWidget {
             SliverPadding(
               padding: GapConstants.large.verticalPadding,
               sliver: SliverAnimatedList(
-                initialItemCount: 10,
+                initialItemCount: availableDoctors.length,
                 itemBuilder: (context, index, animation) => UserListTile(
-                  name: 'Dr Stone Gaze',
-                  medicalType: MedicalType.ear,
-                  stars: 4.5,
-                  onTap: () =>
-                      Navigator.pushNamed(context, AppRoutes.doctorDetail),
+                  entity: availableDoctors[index],
+                  medicalType: medicalType ?? MedicalType.ear,
+                  onTap: () => Navigator.pushNamed(
+                      context, AppRoutes.doctorDetail, arguments: {
+                    'medicalType': medicalType,
+                    'doctor': availableDoctors[index]
+                  }),
                 ),
               ),
             ),

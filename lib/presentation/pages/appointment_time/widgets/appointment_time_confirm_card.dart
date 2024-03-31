@@ -4,11 +4,14 @@ import '../../../../core/extensions/number_extension.dart';
 import '../../../../core/l10n/l10n.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/themes/app_theme.dart';
+import '../../../../domain/doctor/doctor_entity.dart';
 import '../../../constants/gap_constant.dart';
 import '../../../widgets/widgets.dart';
 
 class AppointmentTimeConfirmCard extends StatelessWidget {
-  const AppointmentTimeConfirmCard({super.key});
+  const AppointmentTimeConfirmCard({super.key, this.doctorEntity});
+
+  final DoctorEntity? doctorEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +27,9 @@ class AppointmentTimeConfirmCard extends StatelessWidget {
             Flexible(
               child: LoadingButton(
                 text: L10n.of(context).translate.btnConfirm,
-                onStopLoading: () =>
-                    Navigator.pushNamed(context, AppRoutes.payment),
+                onStopLoading: () => Navigator.pushNamed(
+                    context, AppRoutes.payment,
+                    arguments: doctorEntity),
                 onTap: () async {
                   await Future.delayed(const Duration(seconds: 3));
                 },

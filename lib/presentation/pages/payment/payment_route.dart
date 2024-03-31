@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 import '../../../core/router/screens.dart';
+import '../../../domain/doctor/doctor_entity.dart';
 
 class PaymentRoute<T> extends PageRoute<T>
     with CupertinoRouteTransitionMixin<T> {
@@ -11,7 +12,7 @@ class PaymentRoute<T> extends PageRoute<T>
 
   @override
   Widget buildContent(BuildContext context) {
-    return const PaymentScreen();
+    return PaymentScreen(doctorEntity: settings.arguments as DoctorEntity?);
   }
 
   @override

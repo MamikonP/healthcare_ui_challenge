@@ -4,7 +4,6 @@ import '../../../../core/extensions/number_extension.dart';
 import '../../../../core/themes/app_theme.dart';
 import '../../../constants/gap_constant.dart';
 import '../../../widgets/widgets.dart';
-import '../../coming_soon_screen.dart';
 
 class DoctorWorkLocation extends StatelessWidget {
   const DoctorWorkLocation({super.key, required this.location});
@@ -23,11 +22,6 @@ class DoctorWorkLocation extends StatelessWidget {
                 title: 'Work Location',
                 description: location,
               ),
-              const SizedBox(
-                height: 128,
-                width: double.infinity,
-                child: Card(child: ComingSoonScreen()),
-              )
             ],
           ),
         ),

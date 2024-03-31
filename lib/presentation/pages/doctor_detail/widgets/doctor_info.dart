@@ -4,6 +4,7 @@ import '../../../../core/assets_text.dart';
 import '../../../../core/extensions/number_extension.dart';
 import '../../../../core/l10n/l10n.dart';
 import '../../../../core/themes/app_theme.dart';
+import '../../../../domain/doctor/doctor_entity.dart';
 import '../../../constants/gap_constant.dart';
 import '../../../constants/medical_type.dart';
 import '../../../widgets/widgets.dart';
@@ -39,7 +40,9 @@ class _DoctorInfo extends StatelessWidget {
 }
 
 class DoctorInfo extends StatelessWidget {
-  const DoctorInfo({super.key});
+  const DoctorInfo({super.key, required this.doctorEntity});
+
+  final DoctorEntity doctorEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +54,7 @@ class DoctorInfo extends StatelessWidget {
         child: Column(
           children: [
             UserListTile(
-              name: 'Dr Stone Gaze',
+              entity: doctorEntity,
               medicalType: MedicalType.ear,
             ),
             Row(

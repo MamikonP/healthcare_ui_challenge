@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/extensions/number_extension.dart';
 import '../../../core/l10n/l10n.dart';
 import '../../../core/themes/app_theme.dart';
+import '../../../domain/doctor/doctor_entity.dart';
 import '../../constants/constants.dart';
 import '../../constants/gap_constant.dart';
 import '../../constants/medical_type.dart';
@@ -10,15 +11,13 @@ import '../../constants/medical_type.dart';
 class UserListTile extends StatelessWidget {
   const UserListTile({
     super.key,
-    required this.name,
     required this.medicalType,
-    this.stars,
     this.onTap,
+    required this.entity,
   });
 
-  final String name;
+  final DoctorEntity entity;
   final MedicalType medicalType;
-  final double? stars;
   final VoidCallback? onTap;
 
   @override
@@ -27,18 +26,27 @@ class UserListTile extends StatelessWidget {
       contentPadding: GapConstants.zero.allPadding,
       isThreeLine: true,
       leading: CircleAvatar(
-        child: Text(name.substring(0, 1)),
+        backgroundImage: NetworkImage(entity.image),
       ),
-      title: Text(name),
+      title: Text(
+        entity.name,
+        style:
+            AppTheme.currentThemeOf(context).subtitle1.copyWith(fontSize: 16),
+      ),
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
               '${medicalType.toTitle(context)} ${L10n.of(context).translate.lblSpecialist}'),
-          Text('IDR. 120.000'),
+          Text(
+            'IDR. 120.000',
+            style: AppTheme.currentThemeOf(context)
+                .regular1
+                .copyWith(color: AppTheme.currentThemeOf(context).gray500),
+          ),
         ],
       ),
-      trailing: stars == null
+      trailing: entity.stars == null
           ? null
           : Row(
               mainAxisSize: MainAxisSize.min,
@@ -51,7 +59,7 @@ class UserListTile extends StatelessWidget {
                     size: Constants.iconMediumSize,
                   ),
                 ),
-                Text(stars!.toString())
+                Text(entity.stars!.toString())
               ],
             ),
       onTap: onTap,

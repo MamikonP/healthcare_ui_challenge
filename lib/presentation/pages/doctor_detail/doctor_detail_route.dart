@@ -11,7 +11,9 @@ class DoctorDetailRoute<T> extends PageRoute<T>
 
   @override
   Widget buildContent(BuildContext context) {
-    return const DoctorDetailScreen();
+    final args = settings.arguments as Map<String, dynamic>?;
+    return DoctorDetailScreen(
+        medicalType: args?['medicalType'], doctorEntity: args?['doctor']);
   }
 
   @override

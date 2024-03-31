@@ -72,9 +72,9 @@ class _BookAppointmentContentState extends State<BookAppointmentContent> {
             itemCount: medicalTypes.length,
             itemBuilder: (context, index) => AnimatedContainer(
               curve: Curves.easeInOut,
-              duration: Duration(milliseconds: 300 + (index * 100)),
+              duration: Duration(milliseconds: 500 + (index * 100)),
               transform: Matrix4.translationValues(
-                  startAnimation ? 0 : double.infinity, 0, 0),
+                  startAnimation ? 0 : MediaQuery.sizeOf(context).width, 0, 0),
               child: ListTile(
                 contentPadding: GapConstants.zero.allPadding,
                 leading: IconWithBackground(

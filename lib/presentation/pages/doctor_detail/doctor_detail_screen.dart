@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../../../core/extensions/number_extension.dart';
 import '../../../core/themes/app_theme.dart';
+import '../../../domain/doctor/doctor_entity.dart';
 import '../../constants/gap_constant.dart';
 import '../../constants/medical_type.dart';
-import '../../widgets/general/user_list_tile.dart';
-import '../../widgets/widgets.dart';
 import 'widgets/doctor_bio.dart';
 import 'widgets/doctor_info.dart';
-import 'widgets/doctor_overview.dart';
 import 'widgets/doctor_work_location.dart';
 import 'widgets/make_appointment_card.dart';
 
 class DoctorDetailScreen extends StatelessWidget {
-  const DoctorDetailScreen({super.key, this.medicalType});
+  const DoctorDetailScreen({super.key, this.medicalType, this.doctorEntity});
 
   final MedicalType? medicalType;
+  final DoctorEntity? doctorEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +23,20 @@ class DoctorDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(medicalType?.toTitle(context) ?? ''),
       ),
-      bottomNavigationBar: MakeAppointmentCard(),
+      bottomNavigationBar: MakeAppointmentCard(doctorEntity: doctorEntity,),
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: DoctorInfo()),
+          if (doctorEntity != null)
+            SliverToBoxAdapter(
+                child: DoctorInfo(
+              doctorEntity: doctorEntity!,
+            )),
           SliverPadding(
             padding: GapConstants.smallest.verticalPadding,
             sliver: SliverToBoxAdapter(
               child: DoctorBio(
                 bio:
-                    'Dr. Patricia Ahoy specialist in Ear, Nose & Throat, and work in RS. Hermina Malang. It is a long established fact that a reader will be distracted by the readable content.',
+                    'Dr. ${doctorEntity?.name} specialist in ${medicalType?.toTitle(context)} and work in RS. Hermina Malang. It is a long established fact that a reader will be distracted by the readable content.',
               ),
             ),
           ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/extensions/number_extension.dart';
 import '../../../core/l10n/l10n.dart';
 import '../../../core/themes/app_theme.dart';
+import '../../../domain/doctor/doctor_entity.dart';
 import '../../constants/gap_constant.dart';
 import '../../constants/medical_type.dart';
 import '../../widgets/widgets.dart';
@@ -11,7 +12,9 @@ import 'widgets/schedule_date.dart';
 import 'widgets/total_payment_card.dart';
 
 class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({super.key});
+  const PaymentScreen({super.key, required this.doctorEntity});
+
+  final DoctorEntity? doctorEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -29,26 +32,28 @@ class PaymentScreen extends StatelessWidget {
               elevation: 0.05,
               child: Padding(
                 padding: GapConstants.medium.allPadding,
-                child: UserListTile(
-                  name: 'Dr. Stone Gaze',
-                  medicalType: MedicalType.ear,
-                ),
+                child: doctorEntity == null
+                    ? const SizedBox.shrink()
+                    : UserListTile(
+                        entity: doctorEntity!,
+                        medicalType: MedicalType.ear,
+                      ),
               ),
             ),
           ),
           SliverPadding(
             padding: GapConstants.smallest.verticalPadding,
-            sliver: SliverToBoxAdapter(child: ScheduleDate()),
+            sliver: const SliverToBoxAdapter(child: ScheduleDate()),
           ),
           SliverPadding(
             padding: GapConstants.smallest.verticalPadding,
-            sliver: SliverToBoxAdapter(
+            sliver: const SliverToBoxAdapter(
               child: PaymentMethodCard(),
             ),
           ),
           SliverPadding(
             padding: GapConstants.smallest.verticalPadding,
-            sliver: SliverToBoxAdapter(
+            sliver: const SliverToBoxAdapter(
               child: TotalPaymentCard(),
             ),
           ),

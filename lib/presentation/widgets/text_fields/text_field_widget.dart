@@ -58,6 +58,7 @@ class TextFieldWidget extends StatefulWidget {
       this.borderRadius = Constants.borderRadius,
       this.borderWidth = Constants.borderWidth,
       this.textFieldType = TextFieldType.outline,
+      this.readOnly = false,
       this.filledColor})
       : validator = null,
         formFieldKey = null;
@@ -89,6 +90,7 @@ class TextFieldWidget extends StatefulWidget {
       this.borderRadius = Constants.borderRadius,
       this.borderWidth = Constants.borderWidth,
       this.textFieldType = TextFieldType.outline,
+      this.readOnly = false,
       this.filledColor});
 
   final String? title;
@@ -117,6 +119,7 @@ class TextFieldWidget extends StatefulWidget {
   final Color? filledColor;
   final TextFieldType textFieldType;
   final bool obscureText;
+  final bool readOnly;
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
@@ -147,6 +150,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         ],
         if (widget.validator != null)
           TextFormField(
+              readOnly: widget.readOnly,
               maxLength: widget.maxLength,
               enabled: widget.enabled,
               obscureText: obscure,
@@ -163,6 +167,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
               validator: widget.validator)
         else
           TextField(
+            readOnly: widget.readOnly,
             maxLength: widget.maxLength,
             enabled: widget.enabled,
             obscureText: obscure,
