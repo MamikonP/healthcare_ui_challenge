@@ -9,6 +9,7 @@ import '../../../core/themes/app_theme.dart';
 import '../../constants/appointment_type.dart';
 import '../../constants/constants.dart';
 import '../../constants/gap_constant.dart';
+import '../../widgets/general/sliding_cards_view.dart';
 import '../../widgets/widgets.dart';
 import 'widgets/appointment_card.dart';
 import 'widgets/virus_card.dart';
@@ -54,13 +55,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             SliverPadding(
-              padding: GapConstants.medium.verticalPadding,
-              sliver: SliverToBoxAdapter(
-                child: SearchField(
-                  hintText: L10n.of(context).translate.lblSymptomsAndDiseases,
-                  onFilter: () {},
-                ),
-              ),
+              padding: GapConstants.large.verticalPadding,
+              sliver: SliverToBoxAdapter(child: SlidingCardsView()),
             ),
             SliverPadding(
               padding: GapConstants.large.verticalPadding,
@@ -81,25 +77,6 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SliverPadding(
-              padding: GapConstants.large.verticalPadding,
-              sliver: SliverToBoxAdapter(
-                  child: SizedBox(
-                width: double.infinity,
-                height: Constants.virusCardHeight,
-                child: HorizontalListViewBuilder(
-                  builder: (context, index) => [
-                    VirusCard(
-                        AppTheme.currentThemeOf(context).colorScheme.primary),
-                    VirusCard(
-                        AppTheme.currentThemeOf(context).colorScheme.error),
-                  ][index], // TODO: update
-                  itemExtent:
-                      MediaQuery.sizeOf(context).width - GapConstants.largest,
-                  itemCount: 2,
-                ),
-              )),
-            )
           ],
         ),
       ),
