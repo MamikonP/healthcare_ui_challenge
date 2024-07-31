@@ -31,7 +31,7 @@ class AppointmentTimeConfirmCard extends StatelessWidget {
                     context, AppRoutes.payment,
                     arguments: doctorEntity),
                 onTap: () async {
-                  await Future.delayed(const Duration(seconds: 3));
+                  await Future<void>.delayed(const Duration(seconds: 3));
                 },
               ),
             ),

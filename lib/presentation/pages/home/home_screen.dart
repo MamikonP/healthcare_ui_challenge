@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../../core/assets_text.dart';
 import '../../../core/extensions/number_extension.dart';
-import '../../../core/l10n/l10n.dart';
 import '../../../core/router/app_routes.dart';
 import '../../../core/themes/app_theme.dart';
 import '../../constants/appointment_type.dart';
-import '../../constants/constants.dart';
 import '../../constants/gap_constant.dart';
 import '../../widgets/general/sliding_cards_view.dart';
 import '../../widgets/widgets.dart';
 import 'widgets/appointment_card.dart';
-import 'widgets/virus_card.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -37,7 +33,7 @@ class HomeScreen extends StatelessWidget {
             SliverToBoxAdapter(
               child: Row(
                 children: [
-                  Expanded(
+                  const Expanded(
                     child: HeaderWidget(
                       title: 'Hi Dwiky!',
                       description: 'May you always in a good condition',
@@ -56,7 +52,7 @@ class HomeScreen extends StatelessWidget {
             ),
             SliverPadding(
               padding: GapConstants.large.verticalPadding,
-              sliver: SliverToBoxAdapter(child: SlidingCardsView()),
+              sliver: const SliverToBoxAdapter(child: SlidingCardsView()),
             ),
             SliverPadding(
               padding: GapConstants.large.verticalPadding,

@@ -50,7 +50,7 @@ class LoadingButton extends StatelessWidget {
           startLoading();
           await onTap();
           stopLoading();
-          await Future.delayed(const Duration(milliseconds: 500))
+          await Future<void>.delayed(const Duration(milliseconds: 500))
               .then((value) => onStopLoading?.call());
         }
       },

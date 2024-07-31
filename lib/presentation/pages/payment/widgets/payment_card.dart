@@ -42,7 +42,7 @@ class PaymentCard extends StatelessWidget {
                 onStopLoading: () => Navigator.pushNamedAndRemoveUntil(
                     context, AppRoutes.paymentSuccess, (route) => false),
                 onTap: () async {
-                  await Future.delayed(const Duration(seconds: 3));
+                  await Future<void>.delayed(const Duration(seconds: 3));
                 },
               ),
             ),

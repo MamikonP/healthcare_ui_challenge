@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../../core/extensions/number_extension.dart';
 import '../../../core/l10n/l10n.dart';
@@ -63,7 +61,7 @@ class SignInScreen extends StatelessWidget {
                       onStopLoading: () =>
                           Navigator.pushNamed(context, AppRoutes.home),
                       onTap: () async {
-                        await Future.delayed(const Duration(seconds: 3));
+                        await Future<void>.delayed(const Duration(seconds: 3));
                       }),
                   GapConstants.larger.verticalSpace,
                   SocialButton.google(),
